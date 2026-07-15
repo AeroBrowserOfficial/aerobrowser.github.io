@@ -150,12 +150,20 @@
         /* --- СЕКЦИЯ СКРИНШОТОВ --- */
         .section-title { font-size: 2.5rem; margin-bottom: 50px; letter-spacing: -1px; text-align: center; }
         .gallery { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; max-width: 1200px; margin-top: 20px; }
-        .screen-frame { width: 350px; height: 220px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; overflow: hidden; transition: 0.4s; }
-        .screen-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Было cover, меняем на contain */
-            background: #000;    /* Добавим черный фон, если пропорции не совпадут */
+        .screen-frame { 
+            width: 500px; 
+            height: auto; /* Теперь высота подстроится сама */
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            transition: 0.4s; 
+            display: flex; /* Чтобы картинка центрировалась */
+        }
+        .screen-frame img { 
+            width: 100%; 
+            height: auto; /* Высота подстраивается под ширину */
+            display: block;
         }
         .screen-frame:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3); }
 
