@@ -3,53 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AeroBrowser — Быстрый и легкий браузер</title>
+    <title>AeroBrowser — Будущее Веб-Серфинга Уже Здесь</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1e1e24;
-            color: #fff;
+        /* БАЗОВЫЕ НАСТРОЙКИ (АБСОЛЮТНАЯ ЧЕРНОТА) */
+        :root {
+            --bg-color: #000000; /* Идеально черный фон */
+            --primary-glow: #00d2ff; /* Основной неоновый циан */
+            --secondary-glow: #3aedff; /* Более светлый акцент */
+            --text-main: #ffffff;
+            --text-muted: #888888;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Прячем полосы прокрутки для глубины */
+            background-color: var(--bg-color);
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* КОСМИЧЕСКИЙ ЗАДНИЙ ФОН (ЭФФЕКТ ГЛУБИНЫ) */
+        .space-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            z-index: 1;
+            opacity: 0.6; /* Легкое мерцание звезд */
+        }
+
+        /* ЭФФЕКТ ТУМАННОСТИ (СВЕЧЕНИЕ ПО ЦЕНТРУ) */
+        .nebula {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw; height: 80vh;
+            background: radial-gradient(circle, rgba(0,210,255,0.08) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: 2;
+            filter: blur(80px);
+        }
+
+        /* ОСНОВНОЙ КОНТЕЙНЕР (ЦЕНТРИРОВАНИЕ) */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
         }
-        .container {
-            text-align: center;
+
+        /* ФУТУРИСТИЧНЫЙ КВАРЦЕВЫЙ КУПОЛ (ОКНО ВОКРУГ ЛОГО) */
+        .logo-frame {
+            position: relative;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 0 15px rgba(0, 210, 255, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.02);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
+
+        .logo-frame:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 
+                0 0 25px rgba(0, 210, 255, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.04);
+        }
+
+        /* ЛОГОТИП (ТВОЕ КРЫЛО) */
+        .logo-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; /* На всякий случай */
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4));
+        }
+
+        /* ЗАГОЛОВОК (ФУТУРИСТИЧНЫЙ ГРАДИЕНТ) */
         h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin: 10px 0;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff 0%, #b0efff 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.2));
+            animation: titleGlow 4s infinite alternate;
         }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.2)); }
+            to { filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.5)); }
+        }
+
+        /* ОПИСАНИЕ (ЧЕТКОЕ, МИНИМАЛИСТИЧНОЕ) */
         p {
-            color: #ccc;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 600px;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
         }
+
+        /* КНОПКА ЗАГРУЗКИ (ИНТЕРАКТИВНЫЙ КОСМИЧЕСКИЙ ПУЛЬТ) */
         .download-btn {
-            background: #007acc;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.2s;
+            color: #000;
+            background: var(--primary-glow);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 
+                0 4px 15px rgba(0, 210, 255, 0.3),
+                0 0 30px rgba(0, 210, 255, 0.2);
+            transition: all 0.3s ease;
+            z-index: 10;
         }
+
+        /* АНИМИРОВАННЫЙ БЛИК ВНУТРИ КНОПКИ */
+        .download-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0) 40%,
+                rgba(255,255,255,0.6) 50%,
+                rgba(255,255,255,0) 60%,
+                rgba(255,255,255,0) 100%
+            );
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        /* ХОВЕР ЭФФЕКТ КНОПКИ (МАКСИМАЛЬНОЕ СВЕЧЕНИЕ) */
         .download-btn:hover {
-            background: #005999;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 8px 25px rgba(0, 210, 255, 0.5),
+                0 0 50px rgba(0, 210, 255, 0.3);
+            background: var(--secondary-glow);
         }
+
+        .download-btn:hover::after {
+            opacity: 1;
+            left: 100%;
+            transition: all 0.7s ease;
+        }
+
+        /* ПУЛЬСИРУЮЩИЙ КРУГ ВОКРУГ КНОПКИ */
+        .btn-pulse {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; height: 100%;
+            border-radius: 50px;
+            border: 2px solid var(--primary-glow);
+            opacity: 0;
+            animation: pulseCircle 2s infinite;
+            z-index: 5;
+        }
+
+        @keyframes pulseCircle {
+            0% { width: 100%; height: 100%; opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { width: 130%; height: 180%; opacity: 0; }
+        }
+
+        /* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            p { font-size: 1rem; padding: 0 20px; }
+            .logo-frame { padding: 20px; }
+            .logo-img { width: 100px; height: 100px; }
+        }
+
     </style>
 </head>
 <body>
+    <div class="space-bg"></div>
+    <div class="nebula"></div>
+
     <div class="container">
-        <img src="icon.png" alt="AeroBrowser Logo" width="120" style="margin-bottom: 20px;">
+        <div class="logo-frame">
+            <img src="icon.png" alt="AeroBrowser Logo" class="logo-img">
+        </div>
+
         <h1>AeroBrowser</h1>
-        <p>Легкий, быстрый и современный веб-браузер нового поколения.</p>
+        <p>Легкий, быстрый и современный веб-браузер нового поколения. Ощути скорость, которая опережает время.</p>
         
-        <a href="AeroBrowser-Setup.exe" class="download-btn">Скачать для Windows</a>
+        <div style="position: relative;">
+            <div class="btn-pulse"></div>
+            <a href="https://github.com/AeroBrowserOfficial/aerobrowser.github.io/releases/latest/download/AeroBrowserWindowsSetup.exe" class="download-btn">
+                Скачать для Windows
+            </a>
+        </div>
     </div>
 </body>
 </html>
