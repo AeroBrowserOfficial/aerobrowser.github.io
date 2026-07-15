@@ -43,13 +43,19 @@
         .buttons-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center; z-index: 10; }
         .download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; color: #000; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
         
-        .download-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        /* Общие настройки для SVG внутри кнопок */
+        .download-btn svg { width: 18px; height: 18px; fill: currentColor; display: inline-block; vertical-align: middle; }
 
         /* СТИЛЬ ДЛЯ АКТИВНОЙ ОПРЕДЕЛЕННОЙ СИСТЕМЫ (ПОЦЕНТРУ И БОЛЬШЕ) */
         .download-btn.current-os {
             padding: 22px 46px; 
             font-size: 1.25rem;
             transform: scale(1.05);
+        }
+        
+        .download-btn.current-os svg {
+            width: 22px;
+            height: 22px;
         }
         
         .download-btn.current-os:hover {
@@ -103,7 +109,12 @@
         <h1>AeroBrowser</h1>
         <p>Lightweight, fast, and modern next-gen web browser. Experience speed that stays ahead of time.</p>
         <div class="buttons-container" id="btn-container">
-            <a href="https://github.com/AeroBrowserOfficial/aerobrowser.github.io/releases/latest/download/AeroBrowserWindowsSetup.exe" id="btn-win" class="download-btn btn-win">Download for Windows ❖</a>
+            <a href="https://github.com/AeroBrowserOfficial/aerobrowser.github.io/releases/latest/download/AeroBrowserWindowsSetup.exe" id="btn-win" class="download-btn btn-win">
+                Download for Windows 
+                <svg viewBox="0 0 24 24">
+                    <path d="M0 3.449L9.75 2.1v9.451H0V3.449zM0 12.55h9.75v9.45L0 20.551v-8zM10.8 1.95L24 0v11.55H10.8V1.95zM24 12.55v11.45l-13.2-1.95v-9.5H24z"/>
+                </svg>
+            </a>
             
             <a href="https://github.com/AeroBrowserOfficial/aerobrowser.github.io/releases/latest/download/AeroBrowserMacOSSetup.dmg" id="btn-mac" class="download-btn btn-mac">
                 Download for macOS 
