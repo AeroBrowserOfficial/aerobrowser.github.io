@@ -151,19 +151,21 @@
         .section-title { font-size: 2.5rem; margin-bottom: 50px; letter-spacing: -1px; text-align: center; }
         .gallery { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; max-width: 1200px; margin-top: 20px; }
         .screen-frame { 
-            width: 400px;           /* Уменьшили размер */
+            width: 400px; 
             height: auto; 
-            background: rgba(255, 255, 255, 0.05); 
+            background: #000; /* Черный фон внутри рамки */
             border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 8px;     /* Сделали закругление минимальным */
+            border-radius: 8px; 
             overflow: hidden; 
             transition: 0.4s; 
-            display: flex; 
+            padding: 10px;    /* Добавили отступ, чтобы кнопки не прилипали к краю */
         }
+
         .screen-frame img { 
             width: 100%; 
             height: auto; 
             display: block;
+            border-radius: 4px; /* Скруглим саму картинку внутри */
         }
         .screen-frame:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3); }
 
